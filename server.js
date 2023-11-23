@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoute.js'
 import path from 'path'
+import { fileURLToPath } from 'url';
 
 // configure env
 dotenv.config();
@@ -12,6 +13,9 @@ dotenv.config();
 // database config
 connectDB();
 
+// esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // rest api
 const app = express();
 
